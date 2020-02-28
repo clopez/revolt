@@ -105,8 +105,13 @@ class MainWindow(Gtk.ApplicationWindow):
 
     @cachedproperty
     def _web_context(self):
+        from os import path as P
         print("Creating WebContext...")
         ctx = WebKit2.WebContext(website_data_manager=self._website_data_manager)
+        cookie_manager = ctx.get_cookie_manager()
+        cookie_file_path = P.join(GLib.get_user_cache_dir(), "slavolt", "slavolt.cookies.sql")
+        cookie_manager.set_persistent_storage(cookie_file_path,
+                                              WebKit2.CookiePersistentStorage.SQLITE)
         ctx.set_spell_checking_enabled(False)
         ctx.set_tls_errors_policy(WebKit2.TLSErrorsPolicy.FAIL)
         return ctx
