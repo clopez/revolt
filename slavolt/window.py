@@ -20,7 +20,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.saved_state = saved_state
         Gtk.ApplicationWindow.__init__(self,
                                        application=application,
-                                       icon_name="revolt",
+                                       icon_name="slavolt",
                                        role="main-window",
                                        default_width=saved_state.get_uint("width"),
                                        default_height=saved_state.get_uint("height"))
@@ -34,7 +34,7 @@ class MainWindow(Gtk.ApplicationWindow):
         if application.settings.get_boolean("hide-on-window-close"):
             self.connect("delete-event", self.__hide_on_destroy)
 
-        self.set_title(u"Revolt")
+        self.set_title(u"Slavolt")
         application.add_window(self)
         self._webview = WebKit2.WebView(user_content_manager=self._user_content_manager,
                                         web_context=self._web_context)
@@ -85,7 +85,7 @@ class MainWindow(Gtk.ApplicationWindow):
     def __make_headerbar(self):
         header = Gtk.HeaderBar()
         header.set_show_close_button(True)
-        header.get_style_context().add_class("revolt-slim")
+        header.get_style_context().add_class("slavolt-slim")
         spinner = Gtk.Spinner()
         header.pack_end(spinner)
         self.bind_property("network-busy", spinner, "active",
@@ -98,8 +98,8 @@ class MainWindow(Gtk.ApplicationWindow):
         from os import path as P
         print("Creating WebsiteDataManager...")
         app_id = self.application.get_application_id()
-        cache_dir = P.join(GLib.get_user_cache_dir(), "revolt", app_id)
-        data_dir = P.join(GLib.get_user_data_dir(), "revolt", app_id)
+        cache_dir = P.join(GLib.get_user_cache_dir(), "slavolt", app_id)
+        data_dir = P.join(GLib.get_user_data_dir(), "slavolt", app_id)
         return WebKit2.WebsiteDataManager(base_cache_directory=cache_dir,
                                           base_data_directory=data_dir)
 
@@ -125,7 +125,7 @@ class MainWindow(Gtk.ApplicationWindow):
         if decision_type == WebKit2.PolicyDecisionType.NAVIGATION_ACTION:
             if decision.get_navigation_type() == WebKit2.NavigationType.LINK_CLICKED:
                 uri = decision.get_request().get_uri()
-                if not uri.startswith(self.application.riot_url):
+                if not uri.startswith(self.application.slack_url):
                     show_uri(self, uri)
                     return True
         elif decision_type == WebKit2.PolicyDecisionType.NEW_WINDOW_ACTION:
@@ -140,9 +140,9 @@ class MainWindow(Gtk.ApplicationWindow):
         action = Gio.SimpleAction.new("preferences")
         action.connect("activate", self.application.on_app_preferences)
         action_list.append((action, "_Preferences"))
-        action = Gio.SimpleAction.new("riot-settings")
-        action.connect("activate", self.application.on_riot_settings)
-        action_list.append((action, "_Riot Settings"))
+        action = Gio.SimpleAction.new("slack-settings")
+        action.connect("activate", self.application.on_slack_settings)
+        action_list.append((action, "_Slack Settings"))
         return tuple(action_list)
 
     def __on_context_menu(self, webview, menu, event, hit_test):
@@ -220,14 +220,14 @@ class MainWindow(Gtk.ApplicationWindow):
         self.application.hide()
         return True
 
-    def reload_riot(self, bypass_cache=False):
+    def reload_slack(self, bypass_cache=False):
         if bypass_cache:
             self._webview.reload_bypass_cache()
         else:
             self._webview.reload()
 
-    def load_riot(self):
-        self._webview.load_uri(self.application.riot_url)
+    def load_slack(self):
+        self._webview.load_uri(self.application.slack_url)
         return self
 
     def load_settings_page(self):

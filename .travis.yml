@@ -5,5 +5,5 @@ python:
 install:
   - pip install flake8 flake8-quotes
 script:
-  - ln -s revolt revolt.py
+  - ln -s slavolt slavolt.py
   - flake8 .

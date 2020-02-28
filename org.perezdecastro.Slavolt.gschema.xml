@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <schemalist>
-	<schema id="org.perezdecastro.Revolt">
-		<key name="riot-url" type="s">
-			<summary>Base URL of the Riot installation wrapped by Revolt</summary>
-			<default>"https://riot.im/app"</default>
+	<schema id="org.perezdecastro.Slavolt">
+		<key name="slack-url" type="s">
+			<summary>Base URL of the Slack installation wrapped by Slavolt</summary>
+			<default>"https://slack.im/app"</default>
 		</key>
 		<key name="zoom-factor" type="d">
 			<summary>Zoom factor applied to to application</summary>
@@ -23,14 +23,14 @@
 			<default>false</default>
 		</key>
 
-		<child name="saved-state" schema="org.perezdecastro.Revolt.State"/>
+		<child name="saved-state" schema="org.perezdecastro.Slavolt.State"/>
 	</schema>
 
-	<schema id="org.perezdecastro.Revolt.State">
-		<child name="main-window" schema="org.perezdecastro.Revolt.WindowState"/>
+	<schema id="org.perezdecastro.Slavolt.State">
+		<child name="main-window" schema="org.perezdecastro.Slavolt.WindowState"/>
 	</schema>
 
-	<schema id="org.perezdecastro.Revolt.WindowState">
+	<schema id="org.perezdecastro.Slavolt.WindowState">
 		<key name="width" type="u">
 			<summary>Width of the window</summary>
 			<default>900</default>

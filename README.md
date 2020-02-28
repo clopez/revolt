@@ -1,22 +1,22 @@
-![Logo](https://github.com/aperezdc/revolt/blob/master/assets/revolt-logo.png)
+![Logo](https://github.com/aperezdc/slavolt/blob/master/assets/slavolt-logo.png)
 
-Revolt
+Slavolt
 ======
 
-Revolt is a small application which wraps [Riot](https://riot.im) to provide
+Slavolt is a small application which wraps [Slack](https://slack.im) to provide
 better integration with desktop environments in general, and
 [GNOME](http://www.gnome.org) in particular:
 
-* Having Riot as a “standalone” application with its own window, launcher,
+* Having Slack as a “standalone” application with its own window, launcher,
   icon, etc. instead of it living in a browser tab.
 * Persistent notifications (for desktop environments supporting them, i.e.
-  GNOME). Notifications are automatically prevented when the Revolt window is
+  GNOME). Notifications are automatically prevented when the Slavolt window is
   focused.
 * Status icon for desktop environment which have a tray bar applet (XFCE,
   Budgie, likely many others).
 
-![Status icon in Budgie](https://github.com/aperezdc/revolt/blob/master/assets/revolt-statusicon-screenshot.png)
-![Application Window](https://github.com/aperezdc/revolt/blob/master/assets/revolt-screenshot.png)
+![Status icon in Budgie](https://github.com/aperezdc/slavolt/blob/master/assets/slavolt-statusicon-screenshot.png)
+![Application Window](https://github.com/aperezdc/slavolt/blob/master/assets/slavolt-screenshot.png)
 
 
 Installation
@@ -27,22 +27,22 @@ Starting with version `0.6.13` using a single command is enough (if you want to
 intall in you user directory, add `--user` to the command):
 
 ```sh
-flatpak install --from https://flatpak.perezdecastro.org/revolt.flatpakref
+flatpak install --from https://flatpak.perezdecastro.org/slavolt.flatpakref
 ```
 
 If your Flatpak version is older than 0.6.13, use the following commands
 instead:
 
 ```sh
-wget https://flatpak.perezdecastro.org/revolt.flatpakref
-flatpak install --from revolt.flatpakref
-rm revolt.flatpakref
+wget https://flatpak.perezdecastro.org/slavolt.flatpakref
+flatpak install --from slavolt.flatpakref
+rm slavolt.flatpakref
 ```
 
 Once installed, updates will be installed automatically when using `flatpak update`.
 
 You can also download [the .flatpakref
-file](https://flatpak.perezdecastro.org/revolt.flatpakref) and double-click on
+file](https://flatpak.perezdecastro.org/slavolt.flatpakref) and double-click on
 it to have GNOME Software install the application. GNOME Software will also
 notify you of updates and give you the option to install them.
 
@@ -61,12 +61,12 @@ portal helpers_.
 
 ### GNOME Runtime
 
-Revolt uses the GNOME Flatpak runtime. Depending on the version of Flatpak
+Slavolt uses the GNOME Flatpak runtime. Depending on the version of Flatpak
 installed on your system, you may need to install it manually. You can check
-whether the runtime is missing by trying to run Revolt in a terminal:
+whether the runtime is missing by trying to run Slavolt in a terminal:
 
 ```
-% flatpak run org.perezdecastro.Revolt
+% flatpak run org.perezdecastro.Slavolt
 error: runtime/org.gnome.Platform/x86_64/3.22 not installed
 %
 ```
@@ -105,7 +105,7 @@ Install the dependencies:
 sudo apt-get install python-gobject python3-gi libwebkit2gtk-4.0
 ```
 
-Now you should be able to launch Revolt from the GNOME Shell.
+Now you should be able to launch Slavolt from the GNOME Shell.
 
 ### Upgrading
 
@@ -115,7 +115,7 @@ process can remove stray files from the old version. In general, the preferred
 way of invoking the installation script is as follows:
 
 ```sh
-sudo ./install.sh --upgrade --prefix=/usr --log-file=/etc/revolt.files
+sudo ./install.sh --upgrade --prefix=/usr --log-file=/etc/slavolt.files
 ```
 
 This way a log of the installed files is recorded the first time that the
@@ -126,7 +126,7 @@ from old versions. Also, the log file will be updated with every upgrade.
 Development
 -----------
 
-Using `make run` executes Revolt in “development” mode: the needed resources
+Using `make run` executes Slavolt in “development” mode: the needed resources
 are loaded from the source directory, instead of using the system-wide
 directories.
 
@@ -140,13 +140,13 @@ repository into `.flatpak-repo`. You can create a bundle from the repository
 using:
 
 ```sh
-flatpak build-bundle .flatpak-repo/ Revolt.flatpak org.perezdecastro.Revolt
+flatpak build-bundle .flatpak-repo/ Slavolt.flatpak org.perezdecastro.Slavolt
 ```
 
 Once the bundle is created, you can install and run it with:
 
 ```sh
-flatpak install --user --bundle Revolt.flatpak
-flatpak run org.perezdecastro.Revolt
+flatpak install --user --bundle Slavolt.flatpak
+flatpak run org.perezdecastro.Slavolt
 ```
 

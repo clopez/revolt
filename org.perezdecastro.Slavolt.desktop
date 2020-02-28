@@ -1,10 +1,10 @@
 [Desktop Entry]
 Hidden=false
-Name=Revolt
-Exec=revolt
-TryExec=revolt
-Icon=org.perezdecastro.Revolt
-Comment=Connect to the Matrix chat network
+Name=Slavolt
+Exec=slavolt
+TryExec=slavolt
+Icon=org.perezdecastro.Slavolt
+Comment=Connect to the Slack chat network
 Type=Application
 NoDisplay=false
 StartupNotify=true

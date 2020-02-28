@@ -9,16 +9,16 @@
 def adjust_import_path():
     from os import environ, path as P
     import sys
-    devel = environ.get("__REVOLT_DEVELOPMENT")
+    devel = environ.get("__SLAVOLT_DEVELOPMENT")
     if devel and devel.strip():
         # Prepend source directory path.
         sys.path.insert(0, P.dirname(P.dirname(__file__)))
     else:
         sys.path.insert(0, P.join(P.dirname(P.dirname(__file__)),
-                                  "share", "revolt", "py"))
+                                  "share", "slavolt", "py"))
 
 
 if __name__ == "__main__":
     adjust_import_path()
-    from revolt import main
+    from slavolt import main
     main(__file__)

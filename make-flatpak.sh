@@ -14,11 +14,11 @@ declare -a buildargs=(
 	--force-clean
 	--require-changes
 	--repo="${REPODIR}"
-	--subject="Revolt $(date +%Y%m%d).$(git describe --always --tags)"
+	--subject="Slavolt $(date +%Y%m%d).$(git describe --always --tags)"
 )
 
 declare -a updaterepoargs=(
-	--title=Revolt
+	--title=Slavolt
 	--default-branch=master
 	--prune
 )
@@ -29,5 +29,5 @@ if [[ -n ${EMAIL} ]] ; then
 fi
 
 set -x
-flatpak-builder "${buildargs[@]}" "${BUILDDIR}" "$@" org.perezdecastro.Revolt.json
+flatpak-builder "${buildargs[@]}" "${BUILDDIR}" "$@" org.perezdecastro.Slavolt.json
 flatpak build-update-repo "${updaterepoargs[@]}" "${REPODIR}"

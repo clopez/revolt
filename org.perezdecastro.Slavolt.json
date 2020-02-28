@@ -1,9 +1,9 @@
 {
-  "app-id": "org.perezdecastro.Revolt",
+  "app-id": "org.perezdecastro.Slavolt",
   "runtime": "org.gnome.Platform",
   "runtime-version": "3.34",
   "sdk": "org.gnome.Sdk",
-  "command": "revolt",
+  "command": "slavolt",
   "finish-args": [
     "--device=dri",
     "--share=network",
@@ -16,7 +16,7 @@
     "--filesystem=xdg-documents",
     "--filesystem=xdg-pictures",
 
-    "--own-name=org.perezdecastro.Revolt",
+    "--own-name=org.perezdecastro.Slavolt",
 
     "--talk-name=org.freedesktop.Notifications",
     "--talk-name=org.gtk.Notifications",
@@ -97,11 +97,11 @@
       ]
     },
     {
-      "name": "revolt",
+      "name": "slavolt",
       "sources": [
         {
           "type": "git",
-          "url": "https://github.com/aperezdc/revolt.git"
+          "url": "https://github.com/aperezdc/slavolt.git"
         }
       ]
     }

@@ -16,6 +16,6 @@ def main(program_path):
     # Honor CTRL+C http://stackoverflow.com/q/16410852
     import signal
     import sys
-    from .app import RevoltApp
+    from .app import SlavoltApp
     signal.signal(signal.SIGINT, signal.SIG_DFL)
-    sys.exit(RevoltApp(program_path).run(sys.argv[1:]))
+    sys.exit(SlavoltApp(program_path).run(sys.argv[1:]))

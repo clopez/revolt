@@ -51,15 +51,15 @@ class StatusIconImplSNI(StatusIconImpl):
         self.SNI_ACTIVE = StatusNotifier.Status.ACTIVE
 
         theme = Gtk.IconTheme.get_default()
-        self._offline_icon_pixbuf = theme.load_icon("org.perezdecastro.Revolt",
+        self._offline_icon_pixbuf = theme.load_icon("org.perezdecastro.Slavolt",
                                                     self.ICON_PIXBUF_SIZE,
                                                     Gtk.IconLookupFlags.FORCE_SVG |
                                                     Gtk.IconLookupFlags.FORCE_SYMBOLIC)
-        self._attention_icon_pixbuf = theme.load_icon("org.perezdecastro.Revolt-status-blink",
+        self._attention_icon_pixbuf = theme.load_icon("org.perezdecastro.Slavolt-status-blink",
                                                       self.ICON_PIXBUF_SIZE,
                                                       Gtk.IconLookupFlags.FORCE_SVG |
                                                       Gtk.IconLookupFlags.FORCE_SYMBOLIC)
-        self._online_icon_pixbuf = theme.load_icon("org.perezdecastro.Revolt-status-online",
+        self._online_icon_pixbuf = theme.load_icon("org.perezdecastro.Slavolt-status-online",
                                                    self.ICON_PIXBUF_SIZE,
                                                    Gtk.IconLookupFlags.FORCE_SVG |
                                                    Gtk.IconLookupFlags.FORCE_SYMBOLIC)
@@ -76,11 +76,11 @@ class StatusIconImplSNI(StatusIconImpl):
         self._sni.connect("registration-failed", self.__on_registration_failed)
         self._sni.connect("activate", self.__on_activate)
         self._sni.set_from_pixbuf(self.SNI_ATTENTION_ICON, self._attention_icon_pixbuf)
-        self._sni.set_title("Revolt")
+        self._sni.set_title("Slavolt")
         self._sni.set_status(self.SNI_ACTIVE)
         self._sni.set_item_is_menu(False)
         self._sni.freeze_tooltip()
-        self._sni.set_tooltip_title("Revolt")
+        self._sni.set_tooltip_title("Slavolt")
         self._sni.thaw_tooltip()
         self._sni.register()
 
@@ -131,16 +131,16 @@ class StatusIconImplGSI(StatusIconImpl):
         self._icon = Gtk.StatusIcon()
         self._icon.set_visible(True)
         self._icon.set_property("has-tooltip", True)
-        self._icon.set_property("title", "Revolt")
+        self._icon.set_property("title", "Slavolt")
         self._icon.connect("activate", self.__on_activate)
         self._icon.connect("popup-menu", self.__on_popup_menu)
         self._icon.connect("size-changed", self.__on_icon_size_change)
 
     def set_tooltip(self, text):
         if text is None:
-            self._icon.set_tooltip_text("Revolt")
+            self._icon.set_tooltip_text("Slavolt")
         else:
-            self._icon.set_tooltip_markup("<b>Revolt</b>\n{!s}".format(text))
+            self._icon.set_tooltip_markup("<b>Slavolt</b>\n{!s}".format(text))
 
     def set_status(self, status):
         if status is Status.BLINKING:
@@ -157,7 +157,7 @@ class StatusIconImplGSI(StatusIconImpl):
         self._size = size
         theme = Gtk.IconTheme.get_default()
         for status, icon_suffix in self.ICON_STATUS_NAMES.items():
-            icon_name = "org.perezdecastro.Revolt" + icon_suffix
+            icon_name = "org.perezdecastro.Slavolt" + icon_suffix
             self._icondata[status] = theme.load_icon(icon_name, int(size),
                                                      Gtk.IconLookupFlags.FORCE_SVG |
                                                      Gtk.IconLookupFlags.FORCE_SYMBOLIC)

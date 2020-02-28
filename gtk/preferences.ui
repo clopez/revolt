@@ -75,9 +75,9 @@
                               <object class="GtkLabel">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">Riot _URL</property>
+                                <property name="label" translatable="yes">Slack _URL</property>
                                 <property name="use_underline">True</property>
-                                <property name="mnemonic_widget">riot-url-entry</property>
+                                <property name="mnemonic_widget">slack-url-entry</property>
                                 <property name="track_visited_links">False</property>
                               </object>
                               <packing>
@@ -87,7 +87,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="riot-url-entry">
+                              <object class="GtkEntry" id="slack-url-entry">
                                 <property name="width_request">250</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
@@ -353,7 +353,7 @@
   </object>
   <object class="GtkSizeGroup">
     <widgets>
-      <widget name="riot-url-entry"/>
+      <widget name="slack-url-entry"/>
       <widget name="zoom-factor-scale"/>
     </widgets>
   </object>
