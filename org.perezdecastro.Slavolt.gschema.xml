@@ -3,7 +3,7 @@
 	<schema id="org.perezdecastro.Slavolt">
 		<key name="slack-url" type="s">
 			<summary>Base URL of the Slack installation wrapped by Slavolt</summary>
-			<default>"https://slack.im/app"</default>
+			<default>"https://slack.com/signin"</default>
 		</key>
 		<key name="zoom-factor" type="d">
 			<summary>Zoom factor applied to to application</summary>
